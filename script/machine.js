@@ -54,6 +54,7 @@ mainContainer.addEventListener("click",function(event){
     jobstatus.innerHTML= "INTERVIEW";
     //jobstatus.classList.remove("bg-[#d8dce6]");
     //jobstatus.classList.add("bg-green-500", "text-white");
+    //calculateInterview();
 
     const Interview = {
         company,
@@ -62,7 +63,7 @@ mainContainer.addEventListener("click",function(event){
         jobstatus :'Interview',
         jobMotive
     }
-    console.log(Interviewlist);
+   // console.log(Interviewlist);
 
     const InterviewlistExist = Interviewlist.find(item => item.company == Interview.company)
     if(!InterviewlistExist)
@@ -72,6 +73,7 @@ mainContainer.addEventListener("click",function(event){
     console.log(Interviewlist)
 
     renderInterviewlist();
+    
 
     }
     

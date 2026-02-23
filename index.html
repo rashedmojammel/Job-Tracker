@@ -51,13 +51,21 @@
         <!-- Button -->
         <div class="flex items-center justify-between">
     <div>
-        <button onclick="showonly('jobs-list')" id="All-btn" class="btn bg-blue-600  px-10 btn-soft">All</button>
-        <button onclick="showonly('jobs-notify')" id="Interview-btn" class="btn  btn-soft">Interview</button>
-        <button onclick="showonly('jobs-notify')" id="Rejected-btn" class="btn  btn-soft">Rejected</button>
+        <!-- <button onclick="toggleStyle('jobs-list')" id="All-btn" class="bg-black text-white px-5 py-2">All</button>
+        <button onclick="toggleStyle('jobs-notify')" id="Interview-btn" class="bg-black text-white px-5 py-2">Interview</button>
+        <button onclick="toggleStyle('jobs-notify')" id="Rejected-btn" class="bg-black text-white px-5 py-2">Rejected</button> -->
+        <button onclick="toggleStyle('All-btn')" id="All-btn" class="bg-black text-white px-5 py-2">All</button>
+
+<button onclick="toggleStyle('Interview-btn')" id="Interview-btn" class="bg-gray-300 text-black px-5 py-2">Interview</button>
+
+<button onclick="toggleStyle('Rejected-btn')" id="Rejected-btn" class="bg-gray-300 text-black px-5 py-2">Rejected</button>
     </div>
 
     <span class="text-gray-600">8 jobs</span>
 </div>
+      <section id="filtered-section" class="hidden">
+
+    </section>
     
         <!-- Jobs notification -->
         <div id="jobs-notify" class=" flex  rounded-sm justify-center items-center p-15 mt-5 bg-[#f1f2f4] p-5 hidden ">
@@ -70,134 +78,225 @@
         <!-- Jobs list -->
     <div id="jobs-list" class="mb-5">
         <!-- Job list 1 -->
-        <div id="job-list1" class="mt-5  rounded-sm bg-[#f1f2f4] p-5 space-y-3 relative ">
-            <h1 class="job-company text-[20px] font-bold">Mobile First Corp</h1>
-            <p class=" job-title text-gray-600">React Native Developer</p>
-            <p class="job-salary text-gray-600">Remote • Full-time • $130,000 - $175,000</p>
-            <button  class="Delete-btn"><span class="absolute right-[40px] top-[30px] btn btn-circle bg-[#d8dce6] "><i class="fa-solid fa-trash-can"></i></span></button>
+    <!-- ================= JOB CARD 1 ================= -->
+<div class="job-item mt-5 rounded-sm bg-[#f1f2f4] p-5 space-y-3 relative">
+    <h1 class="job-company text-[20px] font-bold">TechNova Solutions</h1>
+    <p class="job-title text-gray-600">Frontend Developer</p>
+    <p class="job-salary text-gray-600">Dhaka • Full-time • ৳80,000 - ৳120,000</p>
 
-            <div class="status-badge" >
-                <div class="job-status badge p-5 bg-[#d8dce6]">NOT APPLIED</div>
-            </div>
-            <p class="Job-motive">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
-            <div>
-                <button class="Interview-btn btn btn-outline border border-green-600 text-green-600 text-[16px]">INTERVIEW</button>
-                <button class="Rejected-btn btn btn-outline border border-red-600 text-red-600">REJECTED</button>
-            </div>
-        </div>
-        <!-- job list 2 -->
-          <div id="job-list1" class="mt-5  rounded-sm bg-[#f1f2f4] p-5 space-y-3 relative ">
-            <h1 class="job-company text-[20px] font-bold">Mobile First Corp</h1>
-            <p class=" job-title text-gray-600">React Native Developer</p>
-            <p class="job-salary text-gray-600">Remote • Full-time • $130,000 - $175,000</p>
-            <button  class="Delete-btn"><span class="absolute right-[40px] top-[30px] btn btn-circle bg-[#d8dce6] "><i class="fa-solid fa-trash-can"></i></span></button>
+    <button class="Delete-btn">
+        <span class="absolute right-[40px] top-[30px] btn btn-circle bg-[#d8dce6]">
+            <i class="fa-solid fa-trash-can"></i>
+        </span>
+    </button>
 
-            <div class="status-badge" >
-                <div class="job-status badge p-5 bg-[#d8dce6]">NOT APPLIED</div>
-            </div>
-            <p class="Job-motive">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
-            <div>
-                <button class="Interview-btn btn btn-outline border border-green-600 text-green-600 text-[16px]">INTERVIEW</button>
-                <button class="Rejected-btn btn btn-outline border border-red-600 text-red-600">REJECTED</button>
-            </div>
-        </div>
-         <div id="job-list1" class="mt-5  rounded-sm bg-[#f1f2f4] p-5 space-y-3 relative ">
-            <h1 class="job-company text-[20px] font-bold">Mobile First Corp</h1>
-            <p class=" job-title text-gray-600">React Native Developer</p>
-            <p class="job-salary text-gray-600">Remote • Full-time • $130,000 - $175,000</p>
-            <button  class="Delete-btn"><span class="absolute right-[40px] top-[30px] btn btn-circle bg-[#d8dce6] "><i class="fa-solid fa-trash-can"></i></span></button>
+    <div class="status-badge">
+        <div class="job-status badge p-5 bg-[#d8dce6]">NOT APPLIED</div>
+    </div>
 
-            <div class="status-badge" >
-                <div class="job-status badge p-5 bg-[#d8dce6]">NOT APPLIED</div>
-            </div>
-            <p class="Job-motive">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
-            <div>
-                <button class="Interview-btn btn btn-outline border border-green-600 text-green-600 text-[16px]">INTERVIEW</button>
-                <button class="Rejected-btn btn btn-outline border border-red-600 text-red-600">REJECTED</button>
-            </div>
-        </div>
-         <div id="job-list1" class="mt-5  rounded-sm bg-[#f1f2f4] p-5 space-y-3 relative ">
-            <h1 class="job-company text-[20px] font-bold">Mobile First Corp</h1>
-            <p class=" job-title text-gray-600">React Native Developer</p>
-            <p class="job-salary text-gray-600">Remote • Full-time • $130,000 - $175,000</p>
-            <button  class="Delete-btn"><span class="absolute right-[40px] top-[30px] btn btn-circle bg-[#d8dce6] "><i class="fa-solid fa-trash-can"></i></span></button>
+    <p class="Job-motive">
+        Develop responsive web interfaces using React and Tailwind CSS.
+    </p>
 
-            <div class="status-badge" >
-                <div class="job-status badge p-5 bg-[#d8dce6]">NOT APPLIED</div>
-            </div>
-            <p class="Job-motive">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
-            <div>
-                <button class="Interview-btn btn btn-outline border border-green-600 text-green-600 text-[16px]">INTERVIEW</button>
-                <button class="Rejected-btn btn btn-outline border border-red-600 text-red-600">REJECTED</button>
-            </div>
-        </div>
-         <div id="job-list1" class="mt-5  rounded-sm bg-[#f1f2f4] p-5 space-y-3 relative ">
-            <h1 class="job-company text-[20px] font-bold">Mobile First Corp</h1>
-            <p class=" job-title text-gray-600">React Native Developer</p>
-            <p class="job-salary text-gray-600">Remote • Full-time • $130,000 - $175,000</p>
-            <button  class="Delete-btn"><span class="absolute right-[40px] top-[30px] btn btn-circle bg-[#d8dce6] "><i class="fa-solid fa-trash-can"></i></span></button>
+    <div>
+        <button class="Interview-btn btn btn-outline border border-green-600 text-green-600">INTERVIEW</button>
+        <button class="Rejected-btn btn btn-outline border border-red-600 text-red-600">REJECTED</button>
+    </div>
+</div>
 
-            <div class="status-badge" >
-                <div class="job-status badge p-5 bg-[#d8dce6]">NOT APPLIED</div>
-            </div>
-            <p class="Job-motive">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
-            <div>
-                <button class="Interview-btn btn btn-outline border border-green-600 text-green-600 text-[16px]">INTERVIEW</button>
-                <button class="Rejected-btn btn btn-outline border border-red-600 text-red-600">REJECTED</button>
-            </div>
-        </div>
-         <div id="job-list1" class="mt-5  rounded-sm bg-[#f1f2f4] p-5 space-y-3 relative ">
-            <h1 class="job-company text-[20px] font-bold">Mobile First Corp</h1>
-            <p class=" job-title text-gray-600">React Native Developer</p>
-            <p class="job-salary text-gray-600">Remote • Full-time • $130,000 - $175,000</p>
-            <button  class="Delete-btn"><span class="absolute right-[40px] top-[30px] btn btn-circle bg-[#d8dce6] "><i class="fa-solid fa-trash-can"></i></span></button>
+<!-- ================= JOB CARD 2 ================= -->
+<div class="job-item mt-5 rounded-sm bg-[#f1f2f4] p-5 space-y-3 relative">
+    <h1 class="job-company text-[20px] font-bold">DataSphere Inc</h1>
+    <p class="job-title text-gray-600">Data Analyst</p>
+    <p class="job-salary text-gray-600">Remote • Contract • $60,000 - $85,000</p>
 
-            <div class="status-badge" >
-                <div class="job-status badge p-5 bg-[#d8dce6]">NOT APPLIED</div>
-            </div>
-            <p class="Job-motive">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
-            <div>
-                <button class="Interview-btn btn btn-outline border border-green-600 text-green-600 text-[16px]">INTERVIEW</button>
-                <button class="Rejected-btn btn btn-outline border border-red-600 text-red-600">REJECTED</button>
-            </div>
-        </div>
-         <div id="job-list1" class="mt-5  rounded-sm bg-[#f1f2f4] p-5 space-y-3 relative ">
-            <h1 class="job-company text-[20px] font-bold">Mobile First Corp</h1>
-            <p class=" job-title text-gray-600">React Native Developer</p>
-            <p class="job-salary text-gray-600">Remote • Full-time • $130,000 - $175,000</p>
-            <button  class="Delete-btn"><span class="absolute right-[40px] top-[30px] btn btn-circle bg-[#d8dce6] "><i class="fa-solid fa-trash-can"></i></span></button>
+    <button class="Delete-btn">
+        <span class="absolute right-[40px] top-[30px] btn btn-circle bg-[#d8dce6]">
+            <i class="fa-solid fa-trash-can"></i>
+        </span>
+    </button>
 
-            <div class="status-badge" >
-                <div class="job-status badge p-5 bg-[#d8dce6]">NOT APPLIED</div>
-            </div>
-            <p class="Job-motive">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
-            <div>
-                <button class="Interview-btn btn btn-outline border border-green-600 text-green-600 text-[16px]">INTERVIEW</button>
-                <button class="Rejected-btn btn btn-outline border border-red-600 text-red-600">REJECTED</button>
-            </div>
-        </div>
-         <div id="job-list1" class="mt-5  rounded-sm bg-[#f1f2f4] p-5 space-y-3 relative ">
-            <h1 class="job-company text-[20px] font-bold">Mobile First Corp</h1>
-            <p class=" job-title text-gray-600">React Native Developer</p>
-            <p class="job-salary text-gray-600">Remote • Full-time • $130,000 - $175,000</p>
-            <button  class="Delete-btn"><span class="absolute right-[40px] top-[30px] btn btn-circle bg-[#d8dce6] "><i class="fa-solid fa-trash-can"></i></span></button>
+    <div class="status-badge">
+        <div class="job-status badge p-5 bg-[#d8dce6]">NOT APPLIED</div>
+    </div>
 
-            <div class="status-badge" >
-                <div class="job-status badge p-5 bg-[#d8dce6]">NOT APPLIED</div>
-            </div>
-            <p class="Job-motive">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
-            <div>
-                <button class="Interview-btn btn btn-outline border border-green-600 text-green-600 text-[16px]">INTERVIEW</button>
-                <button class="Rejected-btn btn btn-outline border border-red-600 text-red-600">REJECTED</button>
-            </div>
-        </div>
+    <p class="Job-motive">
+        Analyze business data and generate insights using Python and Power BI.
+    </p>
+
+    <div>
+        <button class="Interview-btn btn btn-outline border border-green-600 text-green-600">INTERVIEW</button>
+        <button class="Rejected-btn btn btn-outline border border-red-600 text-red-600">REJECTED</button>
+    </div>
+</div>
+
+<!-- ================= JOB CARD 3 ================= -->
+<div class="job-item mt-5 rounded-sm bg-[#f1f2f4] p-5 space-y-3 relative">
+    <h1 class="job-company text-[20px] font-bold">CloudBridge Ltd</h1>
+    <p class="job-title text-gray-600">DevOps Engineer</p>
+    <p class="job-salary text-gray-600">Singapore • Full-time • $95,000 - $130,000</p>
+
+    <button class="Delete-btn">
+        <span class="absolute right-[40px] top-[30px] btn btn-circle bg-[#d8dce6]">
+            <i class="fa-solid fa-trash-can"></i>
+        </span>
+    </button>
+
+    <div class="status-badge">
+        <div class="job-status badge p-5 bg-[#d8dce6]">NOT APPLIED</div>
+    </div>
+
+    <p class="Job-motive">
+        Manage CI/CD pipelines and deploy scalable cloud infrastructure.
+    </p>
+
+    <div>
+        <button class="Interview-btn btn btn-outline border border-green-600 text-green-600">INTERVIEW</button>
+        <button class="Rejected-btn btn btn-outline border border-red-600 text-red-600">REJECTED</button>
+    </div>
+</div>
+
+<!-- ================= JOB CARD 4 ================= -->
+<div class="job-item mt-5 rounded-sm bg-[#f1f2f4] p-5 space-y-3 relative">
+    <h1 class="job-company text-[20px] font-bold">AI Core Labs</h1>
+    <p class="job-title text-gray-600">Machine Learning Engineer</p>
+    <p class="job-salary text-gray-600">Remote • Full-time • $110,000 - $150,000</p>
+
+    <button class="Delete-btn">
+        <span class="absolute right-[40px] top-[30px] btn btn-circle bg-[#d8dce6]">
+            <i class="fa-solid fa-trash-can"></i>
+        </span>
+    </button>
+
+    <div class="status-badge">
+        <div class="job-status badge p-5 bg-[#d8dce6]">NOT APPLIED</div>
+    </div>
+
+    <p class="Job-motive">
+        Build and optimize deep learning models for NLP applications.
+    </p>
+
+    <div>
+        <button class="Interview-btn btn btn-outline border border-green-600 text-green-600">INTERVIEW</button>
+        <button class="Rejected-btn btn btn-outline border border-red-600 text-red-600">REJECTED</button>
+    </div>
+</div>
+
+<!-- ================= JOB CARD 5 ================= -->
+<div class="job-item mt-5 rounded-sm bg-[#f1f2f4] p-5 space-y-3 relative">
+    <h1 class="job-company text-[20px] font-bold">FinEdge Technologies</h1>
+    <p class="job-title text-gray-600">Backend Developer (.NET)</p>
+    <p class="job-salary text-gray-600">London • Hybrid • £70,000 - £95,000</p>
+
+    <button class="Delete-btn">
+        <span class="absolute right-[40px] top-[30px] btn btn-circle bg-[#d8dce6]">
+            <i class="fa-solid fa-trash-can"></i>
+        </span>
+    </button>
+
+    <div class="status-badge">
+        <div class="job-status badge p-5 bg-[#d8dce6]">NOT APPLIED</div>
+    </div>
+
+    <p class="Job-motive">
+        Develop secure financial APIs using ASP.NET Core and SQL Server.
+    </p>
+
+    <div>
+        <button class="Interview-btn btn btn-outline border border-green-600 text-green-600">INTERVIEW</button>
+        <button class="Rejected-btn btn btn-outline border border-red-600 text-red-600">REJECTED</button>
+    </div>
+</div>
+
+<!-- ================= JOB CARD 6 ================= -->
+<div class="job-item mt-5 rounded-sm bg-[#f1f2f4] p-5 space-y-3 relative">
+    <h1 class="job-company text-[20px] font-bold">CyberSecure Pro</h1>
+    <p class="job-title text-gray-600">Cybersecurity Analyst</p>
+    <p class="job-salary text-gray-600">Dubai • Full-time • $75,000 - $100,000</p>
+
+    <button class="Delete-btn">
+        <span class="absolute right-[40px] top-[30px] btn btn-circle bg-[#d8dce6]">
+            <i class="fa-solid fa-trash-can"></i>
+        </span>
+    </button>
+
+    <div class="status-badge">
+        <div class="job-status badge p-5 bg-[#d8dce6]">NOT APPLIED</div>
+    </div>
+
+    <p class="Job-motive">
+        Monitor security threats and implement vulnerability assessments.
+    </p>
+
+    <div>
+        <button class="Interview-btn btn btn-outline border border-green-600 text-green-600">INTERVIEW</button>
+        <button class="Rejected-btn btn btn-outline border border-red-600 text-red-600">REJECTED</button>
+    </div>
+</div>
+
+<!-- ================= JOB CARD 7 ================= -->
+<div class="job-item mt-5 rounded-sm bg-[#f1f2f4] p-5 space-y-3 relative">
+    <h1 class="job-company text-[20px] font-bold">PixelCraft Studio</h1>
+    <p class="job-title text-gray-600">UI/UX Designer</p>
+    <p class="job-salary text-gray-600">Toronto • Part-time • $45,000 - $65,000</p>
+
+    <button class="Delete-btn">
+        <span class="absolute right-[40px] top-[30px] btn btn-circle bg-[#d8dce6]">
+            <i class="fa-solid fa-trash-can"></i>
+        </span>
+    </button>
+
+    <div class="status-badge">
+        <div class="job-status badge p-5 bg-[#d8dce6]">NOT APPLIED</div>
+    </div>
+
+    <p class="Job-motive">
+        Design modern and intuitive web and mobile interfaces.
+    </p>
+
+    <div>
+        <button class="Interview-btn btn btn-outline border border-green-600 text-green-600">INTERVIEW</button>
+        <button class="Rejected-btn btn btn-outline border border-red-600 text-red-600">REJECTED</button>
+    </div>
+</div>
+
+<!-- ================= JOB CARD 8 ================= -->
+<div class="job-item mt-5 rounded-sm bg-[#f1f2f4] p-5 space-y-3 relative">
+    <h1 class="job-company text-[20px] font-bold">NextGen Robotics</h1>
+    <p class="job-title text-gray-600">Embedded Systems Engineer</p>
+    <p class="job-salary text-gray-600">Germany • Full-time • €85,000 - €110,000</p>
+
+    <button class="Delete-btn">
+        <span class="absolute right-[40px] top-[30px] btn btn-circle bg-[#d8dce6]">
+            <i class="fa-solid fa-trash-can"></i>
+        </span>
+    </button>
+
+    <div class="status-badge">
+        <div class="job-status badge p-5 bg-[#d8dce6]">NOT APPLIED</div>
+    </div>
+
+    <p class="Job-motive">
+        Develop firmware for next-generation robotics hardware systems.
+    </p>
+
+    <div>
+        <button class="Interview-btn btn btn-outline border border-green-600 text-green-600">INTERVIEW</button>
+        <button class="Rejected-btn btn btn-outline border border-red-600 text-red-600">REJECTED</button>
+    </div>
+</div>
+      
+    
         
 
      </div>
         
     </main>
-    <script src = "./script/machine.js"></script>
+    <!-- <script src = "./script/machine.js"></script>
     <script src="./script/Interview.js"></script>
     <script src="./script/delete.js"></script>
+    <script src="./script/other.js"></script> -->
+    <!-- <script src="./script/script.js"></script> -->
+     <script src="./script/delete.js"></script>
 </body>
 </html>
