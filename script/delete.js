@@ -36,13 +36,13 @@ function toggleStyle(id) {
     InterviewFilterBtn.classList.add('bg-gray-300', 'text-black');
     RejectedFilterBtn.classList.add('bg-gray-300', 'text-black');
 
-    allFilterBtn.classList.remove('bg-black', 'text-white');
-    InterviewFilterBtn.classList.remove('bg-black', 'text-white');
-    RejectedFilterBtn.classList.remove('bg-black', 'text-white');
+    allFilterBtn.classList.remove('bg-blue-500', 'text-white');
+    InterviewFilterBtn.classList.remove('bg-blue-500', 'text-white');
+    RejectedFilterBtn.classList.remove('bg-blue-500', 'text-white');
 
     const selected = document.getElementById(id);
     selected.classList.remove('bg-gray-300', 'text-black');
-    selected.classList.add('bg-black', 'text-white');
+    selected.classList.add('bg-blue-500', 'text-white');
 
     if (id === 'All-btn') {
         Alljob.classList.remove('hidden');
@@ -73,13 +73,15 @@ mainContainer.addEventListener("click", function(event){
     // ===== INTERVIEW BUTTON =====
     if(event.target.classList.contains("Interview-btn")) {
 
-        const parentnode = event.target.closest(".rounded-sm");
+        const parentnode = event.target.closest(".job-item");
 
         const company = parentnode.querySelector(".job-company").innerText;
         const jobtitle = parentnode.querySelector(".job-title").innerText;
         const jobsalary = parentnode.querySelector(".job-salary").innerText;
         const jobstatusElement = parentnode.querySelector(".job-status");
         const jobMotive = parentnode.querySelector(".Job-motive").innerText;
+
+        parentnode.style.borderLeft = "8px solid #22c55e";
 
         // Change status 
         jobstatusElement.innerText = "INTERVIEW";
@@ -101,15 +103,14 @@ mainContainer.addEventListener("click", function(event){
             });
         }
 
-        TotalCount();
-       // toggleStyle('Interview-btn');
+      TotalCount();
+   
     }
 
 
     // ===== REJECTED BUTTON =====
     if(event.target.classList.contains("Rejected-btn")) {
 
-        //const parentnode = event.target.closest(".rounded-sm");
         const parentnode = event.target.parentNode.parentNode;
 
         const company = parentnode.querySelector(".job-company").innerText;
@@ -117,6 +118,8 @@ mainContainer.addEventListener("click", function(event){
         const jobsalary = parentnode.querySelector(".job-salary").innerText;
         const jobstatusElement = parentnode.querySelector(".job-status");
         const jobMotive = parentnode.querySelector(".Job-motive").innerText;
+
+        parentnode.style.borderLeft = "8px solid #ef4444";
 
         // Change badge in ALL tab
         jobstatusElement.innerText = "REJECTED";
@@ -139,32 +142,30 @@ mainContainer.addEventListener("click", function(event){
         }
 
         TotalCount();
-        //toggleStyle('Rejected-btn');
+        
     }
     // ===== DELETE BUTTON =====
 if (event.target.closest(".Delete-btn")) {
 
     // get whole job card
-    const card = event.target.closest(".rounded-sm");
+    const card = event.target.closest(".job-item");
 
-    if (!card) return;
+    if (!card) 
+    {
+        return;
+    }
 
     const company = card.querySelector(".job-company")?.innerText;
-
     // remove from interview & rejected lists also
     InterviewList = InterviewList.filter(item => item.company !== company);
     RejectedList = RejectedList.filter(item => item.company !== company);
-
     // remove from DOM
     card.remove();
-
     // update counts
     TotalCount();
 }
 
 });
-
-
 
 // ================= RENDER INTERVIEW =================
 function renderInterviewlist() {
@@ -184,6 +185,7 @@ function renderInterviewlist() {
 
         let div = document.createElement('div');
         div.className ='job-item mt-5 rounded-sm bg-[#f1f2f4] p-5 space-y-3 relative';
+        div.style.borderLeft = "8px solid #22c55e";
 
         div.innerHTML = `
             <h1 class="job-company text-[20px] font-bold">${interviews.company}</h1>
@@ -230,7 +232,10 @@ function renderRejected() {
     RejectedList.forEach(rejected => {
 
         let div = document.createElement('div');
-        div.className ='job-item mt-5 rounded-sm bg-[#f1f2f4] p-5 space-y-3 relative';
+        div.className ='job-item mt-5 rounded-sm bg-[#f1f2f4] p-5 space-y-3 relative border border-none border-l-8 border-l-green-500';
+        div.style.borderLeft = "8px solid red";
+        
+
 
         div.innerHTML = `
             <h1 class="job-company text-[20px] font-bold">${rejected.company}</h1>
@@ -258,4 +263,3 @@ function renderRejected() {
         filterSection.appendChild(div);
     });
 }
-//================Delete button===================

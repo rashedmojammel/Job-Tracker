@@ -51,14 +51,12 @@
         <!-- Button -->
         <div class="flex items-center justify-between">
     <div>
-        <!-- <button onclick="toggleStyle('jobs-list')" id="All-btn" class="bg-black text-white px-5 py-2">All</button>
-        <button onclick="toggleStyle('jobs-notify')" id="Interview-btn" class="bg-black text-white px-5 py-2">Interview</button>
-        <button onclick="toggleStyle('jobs-notify')" id="Rejected-btn" class="bg-black text-white px-5 py-2">Rejected</button> -->
-        <button onclick="toggleStyle('All-btn')" id="All-btn" class="bg-black text-white px-5 py-2">All</button>
+        
+        <button onclick="toggleStyle('All-btn')" id="All-btn" class="bg-blue-500 rounded-md text-white px-12 py-2 transition-all duration-300">All</button>
 
-<button onclick="toggleStyle('Interview-btn')" id="Interview-btn" class="bg-gray-300 text-black px-5 py-2">Interview</button>
+<button onclick="toggleStyle('Interview-btn')" id="Interview-btn" class="bg-gray-300 rounded-md text-black px-5 py-2 transition-all duration-300">Interview</button>
 
-<button onclick="toggleStyle('Rejected-btn')" id="Rejected-btn" class="bg-gray-300 text-black px-5 py-2">Rejected</button>
+<button onclick="toggleStyle('Rejected-btn')" id="Rejected-btn" class="bg-gray-300 rounded-md text-black px-5 py-2 transition-all duration-300">Rejected</button>
     </div>
 
     <span id="jobs-countlist" class="text-gray-600">8 jobs</span>
@@ -68,7 +66,7 @@
     </section>
     
         <!-- Jobs notification -->
-        <div id="jobs-notify" class=" flex  rounded-sm justify-center items-center p-15 mt-5 bg-[#f1f2f4] p-5 hidden ">
+        <div id="jobs-notify" class="flex  rounded-sm justify-center items-center p-15 mt-5 bg-[#f1f2f4] p-5 hidden">
             <div class="flex flex-col justify-center items-center space-y-3 ">
                 <img src="./jobs.png">
                 <h1 class="text-[25px] font-bold">No jobs Available</h1>
@@ -79,7 +77,7 @@
     <div id="jobs-list" class="mb-5">
         <!-- Job list 1 -->
     <!-- ================= JOB CARD 1 ================= -->
-<div class="job-item mt-5 rounded-sm bg-[#f1f2f4] p-5 space-y-3 relative">
+<div class="job-item mt-5 rounded-sm bg-[#f1f2f4] p-5 space-y-3 relative ">
     <h1 class="job-company text-[20px] font-bold">TechNova Solutions</h1>
     <p class="job-title text-gray-600">Frontend Developer</p>
     <p class="job-salary text-gray-600">Dhaka • Full-time • ৳80,000 - ৳120,000</p>
@@ -292,11 +290,6 @@
      </div>
         
     </main>
-    <!-- <script src = "./script/machine.js"></script>
-    <script src="./script/Interview.js"></script>
-    <script src="./script/delete.js"></script>
-    <script src="./script/other.js"></script> -->
-    <!-- <script src="./script/script.js"></script> -->
      <script src="./script/delete.js"></script>
 </body>
 </html>
