@@ -14,11 +14,14 @@ const allCardSection = document.getElementById('allCards');
 const mainContainer = document.querySelector('main')
 const filterSection = document.getElementById('filtered-section')
 
+const jobslist = document.getElementById("jobs-countlist");
+
 
 function calculateCount() {
     total.innerText = allCardSection.children.length //3
     thrivingCount.innerText = thrivingList.length
     strugglingCount.innerText = strugglingList.length
+    jobslist.innerText = allCardSection.children.length;
 }
 
 calculateCount()

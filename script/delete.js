@@ -14,6 +14,9 @@ const RejectedFilterBtn = document.getElementById('Rejected-btn');
 
 const Alljob = document.getElementById("jobs-list");
 const rightJobCount = document.querySelector(".text-gray-600");
+const jobslist = document.getElementById("jobs-countlist");
+
+
 
 
 // ================= TOTAL COUNT =================
@@ -21,6 +24,7 @@ function TotalCount() {
     JobsCount.innerText = Alljob.children.length;
     InterviewCount.innerText = InterviewList.length;
     RejectedCount.innerText = RejectedList.length;
+    jobslist.innerText = Alljob.children.length + " jobs";
 }
 TotalCount();
 
@@ -105,7 +109,8 @@ mainContainer.addEventListener("click", function(event){
     // ===== REJECTED BUTTON =====
     if(event.target.classList.contains("Rejected-btn")) {
 
-        const parentnode = event.target.closest(".rounded-sm");
+        //const parentnode = event.target.closest(".rounded-sm");
+        const parentnode = event.target.parentNode.parentNode;
 
         const company = parentnode.querySelector(".job-company").innerText;
         const jobtitle = parentnode.querySelector(".job-title").innerText;
@@ -136,8 +141,29 @@ mainContainer.addEventListener("click", function(event){
         TotalCount();
         //toggleStyle('Rejected-btn');
     }
+    // ===== DELETE BUTTON =====
+if (event.target.closest(".Delete-btn")) {
+
+    // get whole job card
+    const card = event.target.closest(".rounded-sm");
+
+    if (!card) return;
+
+    const company = card.querySelector(".job-company")?.innerText;
+
+    // remove from interview & rejected lists also
+    InterviewList = InterviewList.filter(item => item.company !== company);
+    RejectedList = RejectedList.filter(item => item.company !== company);
+
+    // remove from DOM
+    card.remove();
+
+    // update counts
+    TotalCount();
+}
 
 });
+
 
 
 // ================= RENDER INTERVIEW =================
@@ -232,3 +258,4 @@ function renderRejected() {
         filterSection.appendChild(div);
     });
 }
+//================Delete button===================
