@@ -59,6 +59,7 @@ function toggleStyle(id) {
         filterSection.classList.add('hidden');
         jobNotify.classList.add('hidden');
        // rightJobCount.innerText = Alljob.children.length + " jobs";
+       
     }
 
     else if (id === 'Interview-btn') {
@@ -73,7 +74,34 @@ function toggleStyle(id) {
         jobslist.innerText = RejectedList.length + " of " + Alljob.children.length + " jobs";
     }
 }
+// ===== UPDATE MAIN LIST CARD STATUS =====
+function updateMainCard(company, status) {
 
+    const allCards = document.querySelectorAll(".job-item");
+
+    allCards.forEach(card => {
+        const name = card.querySelector(".job-company").innerText;
+
+        if (name === company) {
+
+            const badge = card.querySelector(".job-status");
+
+            if (status === "INTERVIEW") {
+                card.style.borderLeft = "8px solid #22c55e";
+                badge.innerText = "INTERVIEW";
+                badge.classList.remove("bg-[#d8dce6]", "bg-red-500");
+                badge.classList.add("bg-green-500", "text-white");
+            }
+
+            if (status === "REJECTED") {
+                card.style.borderLeft = "8px solid #ef4444";
+                badge.innerText = "REJECTED";
+                badge.classList.remove("bg-[#d8dce6]", "bg-green-500");
+                badge.classList.add("bg-red-500", "text-white");
+            }
+        }
+    });
+}
 
 // ================= Main Conainer =================
 const mainContainer = document.querySelector("main");
@@ -92,6 +120,7 @@ mainContainer.addEventListener("click", function(event){
         const jobMotive = parentnode.querySelector(".Job-motive").innerText;
 
         parentnode.style.borderLeft = "8px solid #22c55e";
+        updateMainCard(company, "INTERVIEW");
 
         // Change status 
         jobstatusElement.innerText = "INTERVIEW";
@@ -131,7 +160,7 @@ mainContainer.addEventListener("click", function(event){
     // ===== REJECTED BUTTON =====
     if(event.target.classList.contains("Rejected-btn")) {
 
-        const parentnode = event.target.parentNode.parentNode;
+        const parentnode = event.target.closest(".job-item");
 
         const company = parentnode.querySelector(".job-company").innerText;
         const jobtitle = parentnode.querySelector(".job-title").innerText;
@@ -140,6 +169,7 @@ mainContainer.addEventListener("click", function(event){
         const jobMotive = parentnode.querySelector(".Job-motive").innerText;
 
         parentnode.style.borderLeft = "8px solid #ef4444";
+        updateMainCard(company, "REJECTED");
 
         // Change badge in ALL tab
         jobstatusElement.innerText = "REJECTED";
