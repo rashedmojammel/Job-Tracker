@@ -24,7 +24,17 @@ function TotalCount() {
     JobsCount.innerText = Alljob.children.length;
     InterviewCount.innerText = InterviewList.length;
     RejectedCount.innerText = RejectedList.length;
-    jobslist.innerText = Alljob.children.length + " jobs";
+    //jobslist.innerText = Alljob.children.length + " jobs";
+
+    if (!Alljob.classList.contains("hidden")) {
+        jobslist.innerText = Alljob.children.length + " jobs";
+    } 
+    else if (InterviewFilterBtn.classList.contains("bg-blue-500")) {
+        jobslist.innerText = InterviewList.length + " of " + Alljob.children.length + " jobs";
+    } 
+    else if (RejectedFilterBtn.classList.contains("bg-blue-500")) {
+        jobslist.innerText = RejectedList.length + " of " + Alljob.children.length + " jobs";
+    }
 }
 TotalCount();
 
@@ -48,19 +58,19 @@ function toggleStyle(id) {
         Alljob.classList.remove('hidden');
         filterSection.classList.add('hidden');
         jobNotify.classList.add('hidden');
-        rightJobCount.innerText = Alljob.children.length + " jobs";
+       // rightJobCount.innerText = Alljob.children.length + " jobs";
     }
 
     else if (id === 'Interview-btn') {
         Alljob.classList.add('hidden');
         renderInterviewlist();
-        rightJobCount.innerText = InterviewList.length + " jobs";
+        jobslist.innerText = InterviewList.length + " of " + Alljob.children.length + " jobs";
     }
 
     else if (id === 'Rejected-btn') {
         Alljob.classList.add('hidden');
         renderRejected();
-        rightJobCount.innerText = RejectedList.length + " jobs";
+        jobslist.innerText = RejectedList.length + " of " + Alljob.children.length + " jobs";
     }
 }
 
@@ -104,6 +114,16 @@ mainContainer.addEventListener("click", function(event){
         }
 
       TotalCount();
+      if (!Alljob.classList.contains("hidden")) {
+        } 
+        else {
+            if (InterviewFilterBtn.classList.contains("bg-blue-500")) {
+                renderInterviewlist();
+            } 
+            else if (RejectedFilterBtn.classList.contains("bg-blue-500")) {
+                renderRejected();
+            }
+        }
    
     }
 
@@ -142,6 +162,16 @@ mainContainer.addEventListener("click", function(event){
         }
 
         TotalCount();
+        if (!Alljob.classList.contains("hidden")) {
+        } 
+        else {
+            if (InterviewFilterBtn.classList.contains("bg-blue-500")) {
+                renderInterviewlist();
+            } 
+            else if (RejectedFilterBtn.classList.contains("bg-blue-500")) {
+                renderRejected();
+            }
+        }
         
     }
     // ===== DELETE BUTTON =====
@@ -155,7 +185,7 @@ if (event.target.closest(".Delete-btn")) {
         return;
     }
 
-    const company = card.querySelector(".job-company")?.innerText;
+    const company = card.querySelector(".job-company").innerText;
     // remove from interview & rejected lists also
     InterviewList = InterviewList.filter(item => item.company !== company);
     RejectedList = RejectedList.filter(item => item.company !== company);
@@ -163,6 +193,16 @@ if (event.target.closest(".Delete-btn")) {
     card.remove();
     // update counts
     TotalCount();
+    if (!Alljob.classList.contains("hidden")) {
+        } 
+        else {
+            if (InterviewFilterBtn.classList.contains("bg-blue-500")) {
+                renderInterviewlist();
+            } 
+            else if (RejectedFilterBtn.classList.contains("bg-blue-500")) {
+                renderRejected();
+            }
+        }
 }
 
 });
@@ -232,7 +272,7 @@ function renderRejected() {
     RejectedList.forEach(rejected => {
 
         let div = document.createElement('div');
-        div.className ='job-item mt-5 rounded-sm bg-[#f1f2f4] p-5 space-y-3 relative border border-none border-l-8 border-l-green-500';
+        div.className ='job-item mt-5 rounded-sm bg-[#f1f2f4] p-5 space-y-5 relative border border-none border-l-8 border-l-green-500';
         div.style.borderLeft = "8px solid red";
         
 
