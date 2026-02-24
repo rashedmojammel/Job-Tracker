@@ -304,9 +304,6 @@ function renderRejected() {
         let div = document.createElement('div');
         div.className ='job-item mt-5 rounded-sm bg-[#f1f2f4] p-5 space-y-5 relative border border-none border-l-8 border-l-green-500';
         div.style.borderLeft = "8px solid red";
-        
-
-
         div.innerHTML = `
             <h1 class="job-company text-[20px] font-bold">${rejected.company}</h1>
             <p class="job-title text-gray-600">${rejected.jobtitle}</p>
